@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <SearchBar></SearchBar>
+    <SearchBar @termChange="onTermChange"></SearchBar>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import SearchBar from "./components/SearchBar";
 
 export default {
   name: 'App',
+  methods: {
+    onTermChange: function (newTerm) {
+      console.log(newTerm);
+    }
+  },
   components: {
     SearchBar
   }
