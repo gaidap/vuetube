@@ -6,13 +6,24 @@
 </template>
 
 <script>
+import axios from 'axios';
 import SearchBar from "./components/SearchBar";
+
+const YOUTUBE_API = 'https://www.googleapis.com/youtube/v3/search';
+const API_KEY = process.env.VUE_APP_API_KEY;
 
 export default {
   name: 'App',
   methods: {
-    onTermChange: function (newTerm) {
-      console.log(newTerm);
+    onTermChange: function (searchTerm) {
+      axios.get(YOUTUBE_API, {
+        params: {
+          key: API_KEY,
+          type: 'video',
+          part: 'snippet',
+          q: searchTerm
+        }
+      }).then(response => console.log(response));
     }
   },
   components: {
