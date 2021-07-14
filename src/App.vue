@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <SearchBar @termChange="onTermChange"></SearchBar>
     <VideoList></VideoList>
+    {{ videos.length }}
   </div>
 </template>
 
@@ -25,8 +26,15 @@ export default {
           part: 'snippet',
           q: searchTerm
         }
-      }).then(response => console.log(response));
+      }).then(response => {
+        this.videos = response.data.items;
+      });
     }
+  },
+  data() {
+    return {
+      videos: []
+    };
   },
   components: {
     SearchBar,
