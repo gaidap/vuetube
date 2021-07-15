@@ -2,8 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <SearchBar @termChange="onTermChange"></SearchBar>
-    <VideoList></VideoList>
-    {{ videos.length }}
+    <VideoList :videos="videos"></VideoList>
   </div>
 </template>
 
