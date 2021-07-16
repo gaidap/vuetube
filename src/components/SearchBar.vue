@@ -1,6 +1,9 @@
 <template>
   <div>
-    <input @input="onInput"/>
+    <img alt="Vue logo" src="../assets/logo.png">
+    <div>
+      <input @input="onInput"/>
+    </div>
   </div>
 </template>
 
@@ -16,5 +19,12 @@ export default {
 </script>
 
 <style scoped>
+input {
+  width: 75%;
+}
 
+div {
+  text-align: center;
+  margin: 20px;
+}
 </style>
