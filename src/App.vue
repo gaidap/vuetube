@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <SearchBar @termChange="onTermChange"></SearchBar>
-      <VideoList :videos="videos"></VideoList>
+      <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
     </div>
   </div>
 </template>
@@ -29,6 +29,9 @@ export default {
       }).then(response => {
         this.videos = response.data.items;
       });
+    },
+    onVideoSelect(video) {
+      console.log(video);
     }
   },
   data() {

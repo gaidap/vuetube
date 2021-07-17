@@ -1,5 +1,5 @@
 <template>
-  <li class="list-group-item media">
+  <li class="list-group-item media" @click="onVideoClicked">
     <img class="mr-3" :src="thumbnailUrl" :alt="thumbnailAlternative"/>
     <div class="media-body">
       {{ video.snippet.title }}
@@ -18,21 +18,26 @@ export default {
     thumbnailAlternative() {
       return this.video.id.videoId;
     }
+  },
+  methods: {
+    onVideoClicked() {
+      this.$emit('videoClick', this.video);
+    }
   }
 }
 </script>
 
 <style scoped>
-  li {
-    display: flex;
-    cursor: pointer;
-  }
+li {
+  display: flex;
+  cursor: pointer;
+}
 
-  li:hover {
-    background-color: lightgray;
-  }
+li:hover {
+  background-color: lightgray;
+}
 
-  div {
-    margin: 5px;
-  }
+div {
+  margin: 5px;
+}
 </style>
