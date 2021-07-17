@@ -4,6 +4,7 @@
       <SearchBar @termChange="onTermChange"></SearchBar>
       <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
     </div>
+    <VideoDetail></VideoDetail>
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import axios from 'axios';
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetail from "./components/VideoDetail";
 
 const YOUTUBE_API = 'https://www.googleapis.com/youtube/v3/search';
 const API_KEY = process.env.VUE_APP_API_KEY;
@@ -40,6 +42,7 @@ export default {
     };
   },
   components: {
+    VideoDetail,
     SearchBar,
     VideoList
   }
