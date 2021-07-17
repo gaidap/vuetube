@@ -2,9 +2,11 @@
   <div id="app">
     <div class="container">
       <SearchBar @termChange="onTermChange"></SearchBar>
-      <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
+      <div class="row">
+        <VideoDetail :video="selectedVideo"></VideoDetail>
+        <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
+      </div>
     </div>
-    <VideoDetail></VideoDetail>
   </div>
 </template>
 
@@ -33,11 +35,12 @@ export default {
       });
     },
     onVideoSelect(video) {
-      console.log(video);
+      this.selectedVideo = video;
     }
   },
   data() {
     return {
+      selectedVideo: null,
       videos: []
     };
   },
